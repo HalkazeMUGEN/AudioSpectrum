@@ -1,6 +1,6 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  Audio Spectrum template(?) ver_1.00
+  Audio Spectrum template(?) ver_1.11
                                           author:Halkaze
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -46,6 +46,14 @@ You can see the description to display of the spectrum in Sample folder.
 ### Changelog ###
 
 2022/ 1/26: ver_1.00 is released.
+      2/ 1: ver_1.10 is released.
+            - Added "loop" setting
+            - Removed the range limit for "index" settings
+            - Bug fixes
+              + Fixed an error when playing against characters with AudioSpectrum.
+              + Fixed a bug related to "classes" and "first" settings.
+      2/ 2: ver_1.11 is released.
+            - Replace the DLL with the regular version.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

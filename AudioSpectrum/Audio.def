@@ -64,7 +64,21 @@ Wav = RES/Music.wav; (*** Required ***)
 ;再生したいwavファイルへのパスを指定してください。
 ;
 ;Specify the path to the .wav file.
+
+
+Loop = 0; ~-1=No loop / 0~=Loop Point, (Default: 0)
+
+;ループに関する設定項目です。
+;ループの開始ポイントをミリ秒単位で設定してください。
+;負数が設定された場合はループしません。
+;なお、loop < 0 かつ auto = 0 のとき、再生終了時に
+;indexに該当する箇所を 0 にセットします。
 ;
+;This is the setting for the loop.
+;Set the loop start point in milliseconds.
+;If it is less than 0, it will not loop.
+;Note that if loop < 0 and auto = 0, the code will set
+;the var(index) to 0 when the music finished.
 
 
 Auto = 1; 1=Auto Play / 0=Manual Play, (Default:1)
@@ -122,13 +136,16 @@ RoundState = 0; 0-4, (Default:0)
 
 AssignSysVar = 0; 1=Use SysVar / 0=Use Var, (Default:0)
 
-Index = 0; 0-59 or 0-4, (Default:0)
+Index = 0; (normally,) 0-59 or 0-4, (Default:0)
 
 ;Manual Playモード時、var(index)が1に設定されたタイミングで
 ;音楽を再生し始めます。
 ;AssignSysVarが1のときには、sysvar(index)を参照します。
+;変数の範囲外も指定可能です。(コードによる変数拡張に対応します)
 ;
 ;In Manual Play mode, when the var(index) set to 1,
 ;the code plays the music.
 ;If you AssignSysVar set to 1, the code checks SysVar.
+;Also, you can specify the numbers outside the range of the variable.
+;(it supports "Variable Expantion" by other codes.)
 
