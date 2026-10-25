@@ -1,0 +1,8 @@
+[AudioSpectrum]
+def = AudioSpectrumKFM.def
+enable = 1
+wav = RES\Music.wav
+auto = 1
+classes = 40
+first = 0
+roundstate = 2

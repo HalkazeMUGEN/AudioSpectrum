@@ -1,0 +1,19 @@
+[Info]
+name = "AudioSpectrumKFM"
+displayname = "AudioSpectrumKFM"
+author = "Halkaze"
+pal.defautls = 1
+
+[Files]
+cmd = CNS/kfm.cmd
+cns = CNS/kfm.cns
+st = CNS/kfm.cns
+st0 = DLL/DLLCALL.cns
+stcommon = 
+sprite = RES/AudioSpectrumKFM.sff
+anim = RES/AudioSpectrumKFM.air
+sound = 
+
+[AudioSpectrum]
+dll = DLL/AudioSpectrum.dll
+

@@ -1,0 +1,134 @@
+;
+;基本的には通常のdefファイル同様に記述してください。
+;ファイルのパスを記入する際には、このファイルの配置場所に
+;関わらず、常に通常のdefファイルのある階層からの相対パスで
+;記述してください。
+;
+;実際の利用例についてはSampleフォルダを参照してください。
+;
+;Basically, this file is written in the same way
+;as a normal .def file.
+;The file path should always be relative to the directory
+;where the normal def file is located, regardless of the
+;location of the Audio.def file.
+;
+;If you need more practical sample, please check
+;"Sample" directory.
+;
+;
+;注釈
+;
+;(*** Required ***)は、その項目が必須であることを示します。
+;その項目が存在しない場合には、エラーメッセージが表示されます。
+;
+;(Default:X)は、その項目が存在しない場合にXが設定されることを示します。
+;
+;
+;Annotations
+;
+;(*** Required ***) means the parameter is essential.
+;If there is no the item, the code will show error messages.
+;
+;(Default:X) means that the code will set the parameter to X
+;if there is no the item.
+;
+
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[AudioSpectrum]
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+; General Settings
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Def = AudioSpectrumKFM.def; (*** Required ***)
+
+;キャラクターのdefファイルへのパスを指定します。
+;
+;Specify the path to the character's .def file.
+
+
+Enable = 1; 1=Enable / 0=Disable, (Default:0)
+
+;音楽再生機能やスペクトラム表示機能を利用する場合は
+;Enableに設定してください。
+;Disable設定では、このコードが一切の変数を変更しないことが保証されます。
+;
+;Set enable to use audio playback or spectrum display.
+;To set it 0 will guarantee that the code doesn't change
+;all variables;
+
+
+Wav = RES/Music.wav; (*** Required ***)
+
+;再生したいwavファイルへのパスを指定してください。
+;
+;Specify the path to the .wav file.
+;
+
+
+Auto = 1; 1=Auto Play / 0=Manual Play, (Default:1)
+
+;Auto Playモードは、自動的に音楽を再生するモードです。
+;特定のRoundStateになったときに自動で音楽を再生します。
+;
+;Manual Playモードは、特定の変数が1に設定されたときに
+;音楽を再生するモードです。
+;
+;Auto Play mode is a mode that automatically plays music
+;when RoundState reaches a certain value.
+;
+;Manual Play mode is a mode that plays music
+;when a specific variable (or system variable) is set to 1.
+
+
+Classes = 40; 0-40, (Default:40)
+
+;周波数の分割数を指定します。
+;このコードはこの数だけfvarを使用します。
+;
+;It is the number of divisions of the frequency band.
+;The code is use this number of float variables.
+
+
+First = 0; 0-39, (Default:0)
+
+;このコードが使用するfvarの先頭番号を指定します。
+;通常、このコードは first から first + classes - 1
+;までのfvarを使用します。
+;
+;It's the first index number of float variables that
+;the code attempt to use.
+;The code will basicaly use variables 
+;from fvar(first) to fvar(first + classes - 1).
+
+
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+; Auto Play Settings
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+RoundState = 0; 0-4, (Default:0)
+
+;Auto Playモード時、RoundStateがこの値になったタイミングで
+;音楽を再生し始めます。
+;
+;In Auto Play mode, when the RoundState reaches it,
+;the code plays the music.
+
+
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+; Manual Play Settings
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+AssignSysVar = 0; 1=Use SysVar / 0=Use Var, (Default:0)
+
+Index = 0; 0-59 or 0-4, (Default:0)
+
+;Manual Playモード時、var(index)が1に設定されたタイミングで
+;音楽を再生し始めます。
+;AssignSysVarが1のときには、sysvar(index)を参照します。
+;
+;In Manual Play mode, when the var(index) set to 1,
+;the code plays the music.
+;If you AssignSysVar set to 1, the code checks SysVar.
+
